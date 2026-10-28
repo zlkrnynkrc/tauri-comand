@@ -1,0 +1,327 @@
+{
+  "name": "tauri-comand",
+  "displayName": "Tauri v2 Commands",
+  "description": "Tauri v2 CLI komutları, proje sihirbazı, snippet'lar, bağımlılık yöneticisi ve Debug menüsü entegrasyonu",
+  "version": "0.1.0",
+  "publisher": "Zülkarneyn Karaüce",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Debuggers",
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "tauri",
+    "tauri2",
+    "rust",
+    "desktop",
+    "android",
+    "create-tauri-app",
+    "snippets"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "rust",
+        "path": "./snippets/rust.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "svelte",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "vue",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "json",
+        "path": "./snippets/json.json"
+      },
+      {
+        "language": "jsonc",
+        "path": "./snippets/json.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tauri-comand.createProject",
+        "title": "Tauri: Create New Project",
+        "category": "Tauri",
+        "icon": "$(folder-library)"
+      },
+      {
+        "command": "tauri-comand.runCommand",
+        "title": "Tauri: Run CLI Command...",
+        "category": "Tauri",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "tauri-comand.selectPackageManager",
+        "title": "Tauri: Select Package Manager",
+        "category": "Tauri",
+        "icon": "$(package)"
+      },
+      {
+        "command": "tauri-comand.dev",
+        "title": "Tauri: Dev (Run)",
+        "category": "Tauri",
+        "icon": "$(play)"
+      },
+      {
+        "command": "tauri-comand.build",
+        "title": "Tauri: Build (Release)",
+        "category": "Tauri",
+        "icon": "$(package)"
+      },
+      {
+        "command": "tauri-comand.buildDebug",
+        "title": "Tauri: Build (Debug)",
+        "category": "Tauri",
+        "icon": "$(bug)"
+      },
+      {
+        "command": "tauri-comand.bundle",
+        "title": "Tauri: Bundle",
+        "category": "Tauri",
+        "icon": "$(archive)"
+      },
+      {
+        "command": "tauri-comand.clean",
+        "title": "Tauri: Clean (Cargo & Build Cache)",
+        "category": "Tauri",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "tauri-comand.cargoCheck",
+        "title": "Tauri: Cargo Check",
+        "category": "Tauri",
+        "icon": "$(check)"
+      },
+      {
+        "command": "tauri-comand.cargoClippy",
+        "title": "Tauri: Cargo Clippy",
+        "category": "Tauri",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "tauri-comand.cargoUpdate",
+        "title": "Tauri: Cargo Update",
+        "category": "Tauri",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "tauri-comand.addDependency",
+        "title": "Tauri: Add Dependency (Crates & Plugins)",
+        "category": "Tauri",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "tauri-comand.add",
+        "title": "Tauri: Add Plugin",
+        "category": "Tauri",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "tauri-comand.remove",
+        "title": "Tauri: Remove Plugin",
+        "category": "Tauri",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "tauri-comand.init",
+        "title": "Tauri: Init",
+        "category": "Tauri",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "tauri-comand.info",
+        "title": "Tauri: Info",
+        "category": "Tauri",
+        "icon": "$(info)"
+      },
+      {
+        "command": "tauri-comand.permission",
+        "title": "Tauri: Permission",
+        "category": "Tauri",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "tauri-comand.android",
+        "title": "Tauri: Android...",
+        "category": "Tauri",
+        "icon": "$(device-mobile)"
+      },
+      {
+        "command": "tauri-comand.androidBuildApk",
+        "title": "Tauri: Android Build APK (Universal)",
+        "category": "Tauri",
+        "icon": "$(package)"
+      },
+      {
+        "command": "tauri-comand.androidBuildApkSplit",
+        "title": "Tauri: Android Build APK (Split per ABI)",
+        "category": "Tauri",
+        "icon": "$(package)"
+      },
+      {
+        "command": "tauri-comand.androidBuildAab",
+        "title": "Tauri: Android Build AAB (Google Play)",
+        "category": "Tauri",
+        "icon": "$(archive)"
+      },
+      {
+        "command": "tauri-comand.androidSign",
+        "title": "Tauri: Android Sign & Keystore Setup",
+        "category": "Tauri",
+        "icon": "$(key)"
+      },
+      {
+        "command": "tauri-comand.ios",
+        "title": "Tauri: iOS...",
+        "category": "Tauri",
+        "icon": "$(device-mobile)"
+      },
+      {
+        "command": "tauri-comand.icon",
+        "title": "Tauri: Generate Icons",
+        "category": "Tauri",
+        "icon": "$(file-media)"
+      },
+      {
+        "command": "tauri-comand.signer",
+        "title": "Tauri: Signer...",
+        "category": "Tauri",
+        "icon": "$(key)"
+      },
+      {
+        "command": "tauri-comand.plugin",
+        "title": "Tauri: Plugin Management...",
+        "category": "Tauri",
+        "icon": "$(extensions)"
+      },
+      {
+        "command": "tauri-comand.migrate",
+        "title": "Tauri: Migrate (v1 to v2)",
+        "category": "Tauri",
+        "icon": "$(arrow-swap)"
+      },
+      {
+        "command": "tauri-comand.completions",
+        "title": "Tauri: Completions",
+        "category": "Tauri",
+        "icon": "$(terminal)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "tauri-comand.dev",
+          "when": "view == workbench.view.debug",
+          "group": "navigation@1"
+        },
+        {
+          "command": "tauri-comand.build",
+          "when": "view == workbench.view.debug",
+          "group": "navigation@2"
+        },
+        {
+          "command": "tauri-comand.clean",
+          "when": "view == workbench.view.debug",
+          "group": "navigation@3"
+        },
+        {
+          "command": "tauri-comand.runCommand",
+          "when": "view == workbench.view.debug",
+          "group": "navigation@4"
+        }
+      ]
+    },
+    "debuggers": [
+      {
+        "type": "tauri",
+        "label": "Tauri v2",
+        "languages": [
+          "rust",
+          "javascript",
+          "typescript"
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "Tauri CLI",
+      "properties": {
+        "tauri.packageManager": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "pnpm",
+            "npm",
+            "yarn",
+            "bun",
+            "cargo"
+          ],
+          "default": "auto",
+          "description": "Package manager used to execute Tauri commands (auto, pnpm, npm, yarn, bun, cargo)"
+        },
+        "tauri.customPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional custom working directory for Tauri commands"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "esbuild": "^0.28.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}

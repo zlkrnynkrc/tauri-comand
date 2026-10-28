@@ -1,0 +1,118 @@
+{
+  "Tauri Command": {
+    "prefix": "tauri-command",
+    "body": [
+      "#[tauri::command]",
+      "fn ${1:command_name}(${2:arg}: ${3:String}) -> ${4:String} {",
+      "\tformat!(\"Hello from Tauri! {}\", ${2:arg})",
+      "}"
+    ],
+    "description": "Tauri v2 Command Handler"
+  },
+  "Tauri Command with Result": {
+    "prefix": "tauri-command-result",
+    "body": [
+      "#[tauri::command]",
+      "fn ${1:command_name}(${2:arg}: ${3:String}) -> Result<${4:String}, String> {",
+      "\tif ${2:arg}.is_empty() {",
+      "\t\treturn Err(\"Argument cannot be empty\".into());",
+      "\t}",
+      "\tOk(format!(\"Success: {}\", ${2:arg}))",
+      "}"
+    ],
+    "description": "Tauri v2 Command Handler returning Result"
+  },
+  "Tauri Async Command": {
+    "prefix": "tauri-command-async",
+    "body": [
+      "#[tauri::command]",
+      "async fn ${1:async_command}(${2:arg}: ${3:String}) -> Result<${4:String}, String> {",
+      "\t// Perform async operations here",
+      "\tOk(format!(\"Async response for {}\", ${2:arg}))",
+      "}"
+    ],
+    "description": "Tauri v2 Async Command Handler"
+  },
+  "Tauri Command with State": {
+    "prefix": "tauri-command-state",
+    "body": [
+      "#[tauri::command]",
+      "fn ${1:command_with_state}(state: tauri::State<'_, ${2:AppState}>) -> Result<${3:String}, String> {",
+      "\tlet lock = state.${4:data}.lock().map_err(|e| e.to_string())?;",
+      "\tOk(format!(\"{:?}\", *lock))",
+      "}"
+    ],
+    "description": "Tauri v2 Command Handler with Managed State"
+  },
+  "Tauri Command with AppHandle": {
+    "prefix": "tauri-command-app",
+    "body": [
+      "#[tauri::command]",
+      "fn ${1:command_with_app}(app: tauri::AppHandle) -> Result<(), String> {",
+      "\tuse tauri::Manager;",
+      "\t// Access windows, emitters, or paths through AppHandle",
+      "\tlet _ = app.emit(\"${2:event_name}\", \"${3:payload}\");",
+      "\tOk(())",
+      "}"
+    ],
+    "description": "Tauri v2 Command Handler with AppHandle"
+  },
+  "Tauri Main / Builder": {
+    "prefix": "tauri-main",
+    "body": [
+      "// Prevents additional console window on Windows in release",
+      "#![cfg_attr(not(debug_assertions), windows_subsystem = \"windows\")]",
+      "",
+      "fn main() {",
+      "\ttauri::Builder::default()",
+      "\t\t.plugin(tauri_plugin_shell::init())",
+      "\t\t.invoke_handler(tauri::generate_handler![",
+      "\t\t\t${1:my_command}",
+      "\t\t])",
+      "\t\t.run(tauri::generate_context!())",
+      "\t\t.expect(\"error while running tauri application\");",
+      "}"
+    ],
+    "description": "Tauri v2 main.rs entrypoint boilerplate"
+  },
+  "Tauri Setup Hook": {
+    "prefix": "tauri-setup",
+    "body": [
+      ".setup(|app| {",
+      "\t#[cfg(debug_assertions)]",
+      "\t{",
+      "\t\tlet window = app.get_webview_window(\"main\").unwrap();",
+      "\t\twindow.open_devtools();",
+      "\t}",
+      "\tOk(())",
+      "})"
+    ],
+    "description": "Tauri v2 Builder setup closure with devtools"
+  },
+  "Tauri Emit Event": {
+    "prefix": "tauri-emit",
+    "body": [
+      "use tauri::Emitter;",
+      "app.emit(\"${1:event-name}\", ${2:payload})?;"
+    ],
+    "description": "Emit an event from Rust to frontend in Tauri v2"
+  },
+  "Tauri Listen Event": {
+    "prefix": "tauri-listen",
+    "body": [
+      "use tauri::Listener;",
+      "app.listen(\"${1:event-name}\", |event| {",
+      "\tprintln!(\"Received event: {:?}\", event.payload());",
+      "});"
+    ],
+    "description": "Listen to an event from frontend in Rust"
+  },
+  "Tauri Manage State": {
+    "prefix": "tauri-manage-state",
+    "body": [
+      ".manage(${1:MyState}::default())"
+    ],
+    "description": "Register managed state in Tauri Builder"
+  }
+}
+

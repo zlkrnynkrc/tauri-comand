@@ -1,0 +1,132 @@
+{
+  "Tauri Invoke Command": {
+    "prefix": "tauri-invoke",
+    "body": [
+      "import { invoke } from '@tauri-apps/api/core';",
+      "",
+      "const ${1:result} = await invoke<${2:string}>('${3:command_name}', {",
+      "\t${4:param}: ${5:value}",
+      "});"
+    ],
+    "description": "Invoke a Rust Tauri v2 command"
+  },
+  "Tauri Listen Event": {
+    "prefix": "tauri-listen",
+    "body": [
+      "import { listen } from '@tauri-apps/api/event';",
+      "",
+      "const unlisten = await listen<${1:any}>('${2:event-name}', (event) => {",
+      "\tconsole.log('Received event payload:', event.payload);",
+      "});",
+      "",
+      "// Call unlisten() when component unmounts",
+      "// unlisten();"
+    ],
+    "description": "Listen to a Tauri event from backend"
+  },
+  "Tauri Emit Event": {
+    "prefix": "tauri-emit",
+    "body": [
+      "import { emit } from '@tauri-apps/api/event';",
+      "",
+      "await emit('${1:event-name}', ${2:{ data: 'example' }});"
+    ],
+    "description": "Emit an event from frontend to Tauri"
+  },
+  "Tauri Dialog Open File": {
+    "prefix": "tauri-dialog-open",
+    "body": [
+      "import { open } from '@tauri-apps/plugin-dialog';",
+      "",
+      "const selected = await open({",
+      "\tmultiple: ${1:false},",
+      "\tdirectory: ${2:false},",
+      "\tfilters: [",
+      "\t\t{",
+      "\t\t\tname: '${3:Files}',",
+      "\t\t\textensions: ['${4:png}', '${5:jpg}']",
+      "\t\t}",
+      "\t]",
+      "});",
+      "if (selected) {",
+      "\tconsole.log('Selected file:', selected);",
+      "}"
+    ],
+    "description": "Open native file picker dialog (plugin-dialog)"
+  },
+  "Tauri Dialog Message": {
+    "prefix": "tauri-dialog-message",
+    "body": [
+      "import { message } from '@tauri-apps/plugin-dialog';",
+      "",
+      "await message('${1:Operation completed successfully!}', {",
+      "\ttitle: '${2:Tauri App}',",
+      "\tkind: '${3|info,warning,error|}'",
+      "});"
+    ],
+    "description": "Show native message box (plugin-dialog)"
+  },
+  "Tauri Read Text File": {
+    "prefix": "tauri-fs-read",
+    "body": [
+      "import { readTextFile, BaseDirectory } from '@tauri-apps/plugin-fs';",
+      "",
+      "const contents = await readTextFile('${1:filename.txt}', {",
+      "\tbaseDir: BaseDirectory.${2|AppLocalData,AppData,Resource,Desktop,Document,Download|} ",
+      "});"
+    ],
+    "description": "Read text file using Tauri plugin-fs"
+  },
+  "Tauri Write Text File": {
+    "prefix": "tauri-fs-write",
+    "body": [
+      "import { writeTextFile, BaseDirectory } from '@tauri-apps/plugin-fs';",
+      "",
+      "await writeTextFile('${1:filename.txt}', ${2:data}, {",
+      "\tbaseDir: BaseDirectory.${3|AppLocalData,AppData,Resource,Desktop,Document,Download|}",
+      "});"
+    ],
+    "description": "Write text file using Tauri plugin-fs"
+  },
+  "Tauri Send Notification": {
+    "prefix": "tauri-notify",
+    "body": [
+      "import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/plugin-notification';",
+      "",
+      "let permission = await isPermissionGranted();",
+      "if (!permission) {",
+      "\tconst status = await requestPermission();",
+      "\tpermission = status === 'granted';",
+      "}",
+      "if (permission) {",
+      "\tsendNotification({",
+      "\t\ttitle: '${1:App Notification}',",
+      "\t\tbody: '${2:Hello from Tauri!}'",
+      "\t});",
+      "}"
+    ],
+    "description": "Send native system notification (plugin-notification)"
+  },
+  "Tauri Store Key Value": {
+    "prefix": "tauri-store",
+    "body": [
+      "import { Store } from '@tauri-apps/plugin-store';",
+      "",
+      "const store = new Store('${1:settings.json}');",
+      "await store.set('${2:key}', ${3:'value'});",
+      "await store.save();",
+      "const val = await store.get<${4:string}>('${2:key}');"
+    ],
+    "description": "Save and load key-value data with plugin-store"
+  },
+  "Tauri Open Browser Link": {
+    "prefix": "tauri-open-url",
+    "body": [
+      "import { open } from '@tauri-apps/plugin-shell';",
+      "",
+      "await open('${1:https://tauri.app}');"
+    ],
+    "description": "Open URL in default web browser using plugin-shell"
+  }
+}
+

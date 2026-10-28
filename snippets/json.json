@@ -1,0 +1,61 @@
+{
+  "Tauri v2 Config": {
+    "prefix": "tauri-conf",
+    "body": [
+      "{",
+      "  \"\\$schema\": \"https://schema.tauri.app/config/2\",",
+      "  \"productName\": \"${1:my-tauri-app}\",",
+      "  \"version\": \"0.1.0\",",
+      "  \"identifier\": \"com.${2:example}.${1:my-tauri-app}\",",
+      "  \"build\": {",
+      "    \"beforeDevCommand\": \"${3:pnpm dev}\",",
+      "    \"devUrl\": \"http://localhost:${4:5173}\",",
+      "    \"beforeBuildCommand\": \"${5:pnpm build}\",",
+      "    \"frontendDist\": \"../dist\"",
+      "  },",
+      "  \"app\": {",
+      "    \"windows\": [",
+      "      {",
+      "        \"title\": \"${6:My Tauri App}\",",
+      "        \"width\": 800,",
+      "        \"height\": 600",
+      "      }",
+      "    ],",
+      "    \"security\": {",
+      "      \"csp\": null",
+      "    }",
+      "  },",
+      "  \"bundle\": {",
+      "    \"active\": true,",
+      "    \"targets\": \"all\",",
+      "    \"icon\": [",
+      "      \"icons/32x32.png\",",
+      "      \"icons/128x128.png\",",
+      "      \"icons/128x128@2x.png\",",
+      "      \"icons/icon.icns\",",
+      "      \"icons/icon.ico\"",
+      "    ]",
+      "  }",
+      "}"
+    ],
+    "description": "Full Tauri v2 tauri.conf.json configuration boilerplate"
+  },
+  "Tauri Capability": {
+    "prefix": "tauri-capability",
+    "body": [
+      "{",
+      "  \"\\$schema\": \"../gen/schemas/desktop-schema.json\",",
+      "  \"identifier\": \"${1:main-capability}\",",
+      "  \"description\": \"Capability for the main window\",",
+      "  \"windows\": [\"main\"],",
+      "  \"permissions\": [",
+      "    \"core:default\",",
+      "    \"${2:dialog:default}\",",
+      "    \"${3:fs:default}\"",
+      "  ]",
+      "}"
+    ],
+    "description": "Tauri v2 capability json file definition"
+  }
+}
+

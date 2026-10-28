@@ -1,0 +1,55 @@
+# Node.js / Paket Yöneticisi Bağımlılıkları
+node_modules/
+.pnpm-store/
+.yarn/
+.pnp
+.pnp.js
+
+# Derleme ve Çıktı Dosyaları (Build Artifacts)
+dist/
+out/
+build/
+*.tsbuildinfo
+*.map
+
+# VS Code Eklenti Paketleri
+*.vsix
+
+# Test ve Test Çalıştırma Dosyaları
+.vscode-test/
+.vscode-test.mjs.cache/
+coverage/
+
+# Günlük (Log) Dosyaları
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Güvenlik, Anahtarlar ve Gizli Bilgiler (Keystore & Signing Keys)
+*.jks
+*.keystore
+keystore.properties
+*.key
+*.pem
+*.p12
+*.priv
+.env
+.env.*
+!.env.example
+
+# İşletim Sistemi Geçici Dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editör Yapılandırmaları (Gerektiğinde kaldırılabilir)
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.history/
+
